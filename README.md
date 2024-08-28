@@ -1,3 +1,3 @@
 # Projects
 
-diffrent Projects in diffrent languages
+different Projects in different languages
