@@ -1,3 +1,4 @@
+const moment = require('moment');
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -16,7 +17,11 @@ io.on('connection', (socket) => {
     //listen 
     socket.on('chat message', (msg) => {
         //broadcast to all clients
-        io.emit('chat message', msg);
+        if(!msg){
+            console.log('message leer');
+        }
+        const timestamp = moment().format('h:mm a');
+        io.emit('chat message', {message:msg, time:timestamp});
     });
 
     //if disconnect

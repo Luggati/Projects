@@ -1,0 +1,51 @@
+/* General chat window layout */
+body {
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.chat-window {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.chat-messages p {
+    padding: 8px 12px;
+    background: #eee;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+form {
+    display: flex;
+}
+
+input {
+    flex: 1;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    background: #f7f7f7;
+}
+
+button {
+    border-radius: 20px;
+    padding: 10px 20px;
+}
