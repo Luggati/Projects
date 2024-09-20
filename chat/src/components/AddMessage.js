@@ -1,29 +1,34 @@
 // src/components/AddMessage.js
-
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addMessage } from '../actions/chatActions';
+import { addMessage } from '../actions/chatActions'; // Import your addMessage action creator
 
-const AddMessage = ({ addMessage }) => {
-  const [message, setMessage] = useState('');
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && message.trim()) {
-      addMessage(message);
-      setMessage('');
-    }
-  };
+const AddMessage = ({ dispatch }) => {
+  let input;
 
   return (
-    <input
-      type="text"
-      placeholder="Type a message..."
-      value={message}
-      onChange={(e) => setMessage(e.target.value)}
-      onKeyPress={handleKeyPress}
-    />
+    <section id="new-message">
+      <input
+        type="text"
+        placeholder="Type a message..."
+        ref={(node) => {
+          input = node;
+        }}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            // Dispatch the action with the correct payload structure
+            dispatch(addMessage({text: input.value }));
+            input.value = ''; // Clear the input after dispatching
+          }
+        }}
+      />
+    </section>
   );
 };
 
-// Connect AddMessage to Redux store to dispatch addMessage action
-export default connect(null, { addMessage })(AddMessage);
+AddMessage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+
+export default connect()(AddMessage);
