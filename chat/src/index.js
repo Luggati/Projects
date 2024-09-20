@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux'; // Import Provider from react-redux
+import { createStore } from 'redux'; // Import createStore from redux
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import chatReducer from './reducers/chatReducer'; // Import the chat reducer
+
+// Create the Redux store using the chat reducer
+const store = createStore(chatReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}> {/* Wrap App with Provider and pass the store */}
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Log performance metrics
 reportWebVitals();

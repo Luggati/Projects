@@ -1,0 +1,4 @@
+export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+export const ADD_USER = 'ADD_USER';
+export const UPDATE_USERS_LIST = 'UPDATE_USERS_LIST';
