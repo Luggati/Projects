@@ -1,8 +1,8 @@
-// src/components/AddMessage.js
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addMessage } from '../actions/chatActions'; // Import your addMessage action creator
+import { addMessage } from '../actions/chatActions'; 
 
 const AddMessage = ({ dispatch }) => {
   let input;
@@ -17,8 +17,8 @@ const AddMessage = ({ dispatch }) => {
         }}
         onKeyPress={(e) => {
           if (e.key === 'Enter') {
-            // Dispatch the action with the correct payload structure
-            dispatch(addMessage({text: input.value }));
+            
+            dispatch(addMessage({author : 'Me',text: input.value }));
             input.value = ''; // Clear the input after dispatching
           }
         }}

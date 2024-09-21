@@ -4,9 +4,9 @@ const WebSocket = require('ws');
 
 const server = new WebSocket.Server({ port: 8080 });
 
-let users = []; // List of users connected
+let users = []; 
 
-// Log when the server is running
+
 console.log('WebSocket server is running on ws://localhost:8080');
 
 // Listen for new connections
@@ -20,7 +20,7 @@ server.on('connection', (socket) => {
     switch (data.type) {
       case 'ADD_USER':
         users.push(data.name);
-        socket.username = data.name; // Store username in the socket object
+        socket.username = data.name; 
         broadcast({
           type: 'UPDATE_USERS_LIST',
           users,
@@ -53,7 +53,7 @@ server.on('connection', (socket) => {
   });
 });
 
-// Function to broadcast messages to all connected clients
+
 function broadcast(message) {
   server.clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN) {

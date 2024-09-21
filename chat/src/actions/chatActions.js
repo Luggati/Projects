@@ -1,4 +1,4 @@
-// src/actions/chatActions.js
+
 import { ADD_MESSAGE, ADD_USER, RECEIVE_MESSAGE, UPDATE_USERS_LIST } from '../ActionTypes';
 
 // Action creator for receiving a message
@@ -13,7 +13,7 @@ export const updateUsersList = (users) => ({
   payload: users,
 });
 
-// Action creator for adding a message (optional, adjust based on your needs)
+// Action creator for adding a message 
 export const addMessage = (message) => ({
   type: ADD_MESSAGE,
   payload: message,
